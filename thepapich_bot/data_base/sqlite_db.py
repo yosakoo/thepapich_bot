@@ -25,7 +25,7 @@ async def sql_add_command(state):
 async def sql_send_mess(state):
         async with state.proxy() as data:
                 for user_id in cur.execute("SELECT user_id FROM users_id").fetchall():
-                    chat_id = user_id[0]  # Получаем первый элемент кортежа, представляющий user_id
+                    chat_id = user_id[0]  # найс чат гпт
                     await bot.send_sticker(chat_id=chat_id, sticker=data['sticker'])
                     await bot.send_message(chat_id=chat_id,
                                            text=f"Новый товар !\nИмя: {data['name']}\nОписание: {data['description']}\nЦена: {data['price']}", reply_markup=kb_client)
